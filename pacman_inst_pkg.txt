@@ -1,0 +1,9 @@
+bat
+brightnessctl
+exa
+fzf
+man-db
+mdcat
+pacman-contrib
+sddm
+thunar

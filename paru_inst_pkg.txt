@@ -1,0 +1,7 @@
+grim
+hyprland-nvidia
+hyprpaper-git
+rofi-lbonn-wayland-git
+sddm-sugar-dark
+sioyek
+slurp
