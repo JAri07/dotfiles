@@ -103,7 +103,7 @@ local themes = {
 }
 
 -- choose your theme here
-local chosen_theme = themes[1]
+local chosen_theme = themes[3]
 
 local theme_path = string.format("%s/.config/awesome/themes/%s/theme.lua", os.getenv("HOME"), chosen_theme)
 beautiful.init(theme_path)
@@ -115,15 +115,16 @@ local modkey1      = "Control"
 
 -- personal variables
 --change these variables if you want
-local browser1          = "vivaldi-stable"
+local browser1          = "brave"
 local browser2          = "firefox"
-local browser3          = "chromium -no-default-browser-check"
+local browser3          = "tor-browser"
 local editor            = os.getenv("EDITOR") or "nano"
 local editorgui         = "atom"
 local filemanager       = "thunar"
 local mailclient        = "evolution"
 local mediaplayer       = "spotify"
-local terminal          = "urxvt"
+--local terminal          = "urxvt"
+local terminal          = "alacritty"
 local virtualmachine    = "virtualbox"
 
 -- awesome variables
@@ -664,10 +665,23 @@ globalkeys = my_table.join(
               --{description = "show weather", group = "widgets"}),
 
     -- Brightness
-    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("xbacklight -inc 10") end,
-              {description = "+10%", group = "hotkeys"}),
-    awful.key({ }, "XF86MonBrightnessDown", function () os.execute("xbacklight -dec 10") end,
-              {description = "-10%", group = "hotkeys"}),
+    awful.key({ }, "XF86MonBrightnessUp", function () os.execute("light -A 5") end,
+              {description = "+5%", group = "hotkeys"}),
+    awful.key({ }, "XF86MonBrightnessDown", 
+    function ()
+	    local brightness_get = io.popen("cat /sys/class/backlight/intel_backlight/brightness")
+	    local max_brightness_get = io.popen("cat /sys/class/backlight/intel_backlight/max_brightness")
+	    local brightness = brightness_get:read("*n")
+	    local max_brightness = max_brightness_get:read("*n")
+	    brightness_get:close()
+	    max_brightness_get:close()
+	    if brightness > (max_brightness/100)*5 then
+		    os.execute("light -U 5")
+	    else
+		    os.execute("light -S 1")
+	    end
+    end,
+              {description = "-5%", group = "hotkeys"}),
 
     -- ALSA volume control
     --awful.key({ modkey1 }, "Up",
