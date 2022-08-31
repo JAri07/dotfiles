@@ -11,6 +11,7 @@ fi
 
 ### Set/unset ZSH options
 #########################
+setopt NOBEEP
 # setopt NOHUP
 # setopt NOTIFY
 # setopt NO_FLOW_CONTROL
@@ -20,7 +21,7 @@ setopt APPEND_HISTORY
 # setopt AUTO_REMOVE_SLASH
 # setopt AUTO_RESUME
 unsetopt BG_NICE
-setopt CORRECT
+unsetopt CORRECT
 setopt EXTENDED_HISTORY
 # setopt HASH_CMDS
 setopt MENUCOMPLETE
