@@ -76,8 +76,8 @@ unsetopt ALL_EXPORT
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.local/bin"
 # export EDITOR="$HOME/.local/bin/nvim"
-export EDITOR="/usr/local/bin/nvim"
-export VISUAL="/usr/local/bin/nvim"
+export EDITOR="lvim"
+export VISUAL="lvim"
 export EDITOR_EMACS="emacsclient -t -a ''"              # $EDITOR use Emacs in terminal
 export VISUAL_EMACS="emacsclient -c -a emacs"           # $VISUAL use Emacs in GUI mode
 export TERMINAL="/usr/bin/kitty"
@@ -88,9 +88,7 @@ export PATH="$PATH:$HOME/.emacs.d/bin"
 #############
 
 #editor
-# alias vi="$HOME/.local/bin/lvim"
-alias vi="/usr/local/bin/nvim"
-#alias nvim="lvim"
+alias vi="lvim"
 alias em="/usr/bin/emacs -nw"
 alias emacs="emacsclient -c -a 'emacs'"
 alias doomsync="~/.emacs.d/bin/doom sync"
@@ -266,12 +264,7 @@ source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# xplr
-eval "$(luarocks path --lua-version 5.1)"
-
-
 # FZF
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
-[ -f "/home/zero/.ghcup/env" ] && source "/home/zero/.ghcup/env" # ghcup-env
