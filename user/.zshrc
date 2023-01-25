@@ -1,16 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-#######################################################
-####### Anarchy ZSH configuration file    #######
-#######################################################
-
-### Set/unset ZSH options
-#########################
 setopt NOBEEP
 # setopt NOHUP
 # setopt NOTIFY
@@ -29,8 +16,8 @@ setopt ALL_EXPORT
 
 ### Set/unset  shell options
 ############################
-setopt   notify globdots correct pushdtohome cdablevars autolist
-setopt   correctall autocd recexact longlistjobs
+setopt   notify globdots pushdtohome cdablevars autolist
+setopt   autocd recexact longlistjobs
 setopt   autoresume histignoredups pushdsilent 
 setopt   autopushd pushdminus extendedglob rcquotes mailwarning
 unsetopt bgnice autoparamslash
@@ -54,6 +41,23 @@ SAVEHIST=500
 HOSTNAME="`hostname`"
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
 
+# Zap
+[ -f "$HOME/.local/share/zap/zap.zsh" ] && source "$HOME/.local/share/zap/zap.zsh"
+
+# Example install plugins
+plug "zap-zsh/supercharge"
+plug "zsh-users/zsh-autosuggestions"
+
+#Example plugin pinned to specifc commit or branch, just pass the git reference
+plug "zsh-users/zsh-syntax-highlighting" "122dc46"
+
+# Example theme
+# plug "zap-zsh/zap-prompt"
+
+plug "zap-zsh/vim"
+
+plug "MAHcodes/distro-prompt"
+
 ### Load colors
 ###############
 autoload colors zsh/terminfo
@@ -66,49 +70,26 @@ for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
    (( count = $count + 1 ))
 done
 
-### Set prompt
-##############
-PR_NO_COLOR="%{$terminfo[sgr0]%}"
-PS1="[%(!.${PR_RED}%n.$PR_LIGHT_YELLOW%n)%(!.${PR_LIGHT_YELLOW}@.$PR_RED@)$PR_NO_COLOR%(!.${PR_LIGHT_RED}%U%m%u.${PR_LIGHT_GREEN}%U%m%u)$PR_NO_COLOR:%(!.${PR_RED}%2c.${PR_BLUE}%2c)$PR_NO_COLOR]%(?..[${PR_LIGHT_RED}%?$PR_NO_COLOR])%(!.${PR_LIGHT_RED}#.${PR_LIGHT_GREEN}$) "
-RPS1="$PR_LIGHT_YELLOW(%D{%m-%d %H:%M})$PR_NO_COLOR"
-unsetopt ALL_EXPORT
-
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/.local/bin"
-# export EDITOR="$HOME/.local/bin/nvim"
 export EDITOR="lvim"
 export VISUAL="lvim"
-export EDITOR_EMACS="emacsclient -t -a ''"              # $EDITOR use Emacs in terminal
-export VISUAL_EMACS="emacsclient -c -a emacs"           # $VISUAL use Emacs in GUI mode
 export TERMINAL="/usr/bin/kitty"
-
-export PATH="$PATH:$HOME/.emacs.d/bin"
-
-### Set alias
-#############
 
 #editor
 alias vi="lvim"
-alias em="/usr/bin/emacs -nw"
-alias emacs="emacsclient -c -a 'emacs'"
-alias doomsync="~/.emacs.d/bin/doom sync"
-alias doomdoctor="~/.emacs.d/bin/doom doctor"
-alias doomupgrade="~/.emacs.d/bin/doom upgrade"
-alias doompurge="~/.emacs.d/bin/doom purge"
 
 #list
-alias ls='/usr/bin/lsd'
-alias lsn='/usr/bin/ls --color=auto'
+alias lsn="/usr/bin/ls --color=auto"
+alias ls="exa --icons"
 
 #cat
-# alias cat='bat --paging=never'
 alias catn='/usr/bin/cat'
 
 # Aliases for software managment
 # pacman or pm
 alias pacman='sudo pacman --color auto'
-alias update='sudo pacman -Syyu'
-alias del_package_cache='sudo paccache -rvk 2'
+alias update='paru && paccache-clear.sh'
 
 #grub update
 alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
@@ -158,6 +139,7 @@ cat ()
     echo "'$1' is not a valid file"
   fi
 }
+
 ### Bind keys
 #############
 autoload -U compinit
@@ -254,10 +236,10 @@ zstyle '*' single-ignored show
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH=~/.npm-global/bin:$PATH
 
-source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
+# source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
