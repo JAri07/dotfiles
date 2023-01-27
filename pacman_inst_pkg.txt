@@ -1,0 +1,9 @@
+sddm
+bat
+exa
+mdcat
+brightnessctl
+nemo
+fzf
+pacman-contrib
+man-db
