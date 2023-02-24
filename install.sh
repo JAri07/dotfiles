@@ -1,32 +1,43 @@
-#!/bin/sh
+# Installation process
+sudo pacman -Syu --needed base-devel git
 
-sudo pacman -S --needed base-devel
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-cd ..
-rm -Rf paru
+# If paru is not installed:
+if [[ $(sudo _isInstalled "paru") == 0 ]]; then
+	echo "Hello"
+	git clone https://aur.archlinux.org/paru.git
+	cd paru
+	makepkg -si
+	cd ..
+	rm -rf paru
+	return
+fi
+
 pacman -Sy --needed - <pacman.lst
 paru -Sy --needed - <paru.lst
-git clone https://github.com/neovim/neovim
-cd neovim && make CMAKE_BUILD_TYPE=Release
-sudo make install
-cd ..
-sudo pacman -S python-pip python npm nodejs rust
-mkdir ~/.npm-global
-npm config set prefix '~/.npm-global'
 
-bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
-cp -r .config/rofi ~/.config/
-cp -r .config/dunst ~/.config/
-cp -r .config/hypr ~/.config/
-cp -r .config/waybar ~/.config/
-cp -r .config/kitty ~/.config/
+# Install tresitter
+npm install -g tree-sitter
+# Install code copy/paste detector (https://github.com/kucherenko/jscpd)
+npm install -g jscpd
 
-mkdir -p ~/.local/share/fonts
-cp -r .local/fonts/* ~/.local/share/fonts
-mkdir -p ~/.local/bin
-cp -r .local/bin/* ~/.local/bin
-cp .zshrc ~/
+# Enable packages
 
-zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) -y
+sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth.service
+sudo systemctl enable tor.service
+sudo systemctl start tor.service
+sudo systemctl enable sddm
+
+# Change SDDM theme
+sudo sed -i 's/Current=*/Current=sugar-dark/1' /usr/lib/sddm/sddm.conf.d/default.conf
+
+_isInstalled() {
+	package="$1"
+	check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")"
+	if [ -n "${check}" ]; then
+		echo 1
+		return
+	fi
+	echo 0
+	return
+}
