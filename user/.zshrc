@@ -96,6 +96,7 @@ alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
 
 # add new fonts
 alias update-fc='sudo fc-cache -fv'
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
 
 #switch between bash and zsh
 alias tobash="sudo chsh $USER -s /bin/bash && echo 'Now log out.'"
@@ -249,4 +250,4 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # FZF
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
-
+export PATH=$HOME/.config/rofi/scripts:$PATH
