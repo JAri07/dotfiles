@@ -71,12 +71,11 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "睊 Disconnected",
         "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
-        "on-click": "wofi-wifi-menu"
+        "on-click": "nm-applet"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": "ﱝ Muted",
-        "on-click": "/home/amitgold/.config/hypr/scripts/volume_ctl.sh mute",
         "scroll-step": 1,
         "format-icons": {
             "headphone": "",
