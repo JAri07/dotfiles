@@ -1,9 +1,10 @@
 #!/bin/bash
 # Installation process
-sudo pacman -Syu --needed base-devel git
 
-source .install/paru.sh
-source .install/packages.sh
+source .install/includes/colors.sh
+source .install/packages/required.sh
+source .install/packages/packages.sh
+source .install/packages/paru.sh
 source .install/neovim.sh
 
 # Move config files
