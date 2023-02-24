@@ -20,6 +20,25 @@ npm install -g tree-sitter
 # Install code copy/paste detector (https://github.com/kucherenko/jscpd)
 npm install -g jscpd
 
+# Move config files
+
+if [ -d ~/.config/ ]; then
+	echo "Config folder already exists"
+else
+	mkdir ~/.config
+fi
+
+mv ./dunst/ ~/.config/
+mv ./hypr/ ~/.config/
+mv ./kitty/ ~/.config/
+mv ./rofi/ ~/.config/
+mv ./waybar/ ~/.config/
+mv ./wezterm/ ~/.config/
+
+mkdir -p ~/.local/share
+mv ./.local/bin/ ~/.local/
+mv ./.local/fonts/ ~/.local/share/
+
 # Enable packages
 
 sudo systemctl enable bluetooth.service
