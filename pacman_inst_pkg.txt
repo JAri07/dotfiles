@@ -3,7 +3,7 @@ bat
 exa
 mdcat
 brightnessctl
-nemo
+thunar
 fzf
 pacman-contrib
 man-db
