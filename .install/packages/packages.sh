@@ -17,6 +17,7 @@ packagesPacman=(
   "breeze-icons"
   "brightnessctl"
   "btop"
+  "bzip"
   "curl"
   "dunst"
   "exa"
@@ -25,7 +26,7 @@ packagesPacman=(
   "fuse2"
   "grim"
   "gtk4"
-  "gunzip"
+  "gzip"
   "guvcview"
   "gvfs"
   "htop"
@@ -38,6 +39,7 @@ packagesPacman=(
   "man-pages"
   "meson"
   "mpv"
+  "ncompress"
   "neovim"
   "network-manager-applet"
   "networkmanager"
@@ -71,7 +73,6 @@ packagesPacman=(
   "ttf-fira-sans"
   "ttf-firacode-nerd"
   "tumbler"
-  "uncompress"
   "unrar"
   "unzip"
   "vlc"
@@ -103,6 +104,9 @@ optionalPackagesPacman=(
   "libreoffice"
   "tor"
   "torbrowser-launcher"
+)
+
+optionalPackagesAUR=(
   "topgrade"
 )
 

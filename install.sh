@@ -5,7 +5,7 @@ source .install/includes/colors.sh
 source .install/includes/library.sh
 source .install/packages/required.sh
 source .install/packages/packages.sh
-source .install/packages/paru.sh
+source .install/packages/aur.sh
 source .install/packages/install-packages.sh
 source .install/neovim.sh
 
