@@ -19,7 +19,6 @@ fi
 
 mv ./dunst/ ~/.config/
 mv ./hypr/ ~/.config/
-mv ./kitty/ ~/.config/
 mv ./rofi/ ~/.config/
 mv ./waybar/ ~/.config/
 mv ./wezterm/ ~/.config/
