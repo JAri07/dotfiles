@@ -2,6 +2,7 @@
 # Installation process
 
 source .install/includes/colors.sh
+source .install/includes/library.sh
 source .install/packages/required.sh
 source .install/packages/packages.sh
 source .install/packages/paru.sh
