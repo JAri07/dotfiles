@@ -1,11 +1,12 @@
 #!/bin/bash
 
-# If paru is not installed:
-if [[ $(_isInstalled "paru") == 1 ]]; then
-  git clone https://aur.archlinux.org/paru.git
-  cd paru
+aur=$(gum choose --limit 1 "yay" "paru")
+
+if [[ $(_isInstalled "${aur}") == 1 ]]; then
+  git clone https://aur.archlinux.org/"${aur}".git
+  cd "${aur}"
   makepkg -si
   cd ..
-  rm -rf paru
+  rm -rf "${aur}"
   return
 fi
