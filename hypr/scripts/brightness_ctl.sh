@@ -8,9 +8,8 @@
 # https://github.com/dastorm/volume-notification-dunst/blob/master/volume.sh
 # https://gist.github.com/sebastiencs/5d7227f388d93374cebdf72e783fbd6a
 
-
 function get_brightness {
-	brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-1)}'
+  brightnessctl -m | awk -F, '{print substr($4, 0, length($4)-1)}'
 }
 
 function send_notification {
@@ -24,24 +23,23 @@ function send_notification {
   dunstify -i "$icon" -r 5555 -u normal "|$bar$space| $brightness%"
 }
 
-
 case $1 in
-  up)
-    # increase the backlight by 5%
-    brightnessctl set 5%+
-    send_notification
-    ;;
-  down)
-    # decrease the backlight by 5%
-    brightnessctl set 5%-
-    send_notification
-    ;;
-  max)
-    brightnessctl set 100%
-    send_notification
-    ;;
-  blank)
-    brightnessctl set 0%
-    send_notification
-    ;;
+up)
+  # increase the backlight by 5%
+  brightnessctl set 5%+
+  send_notification
+  ;;
+down)
+  # decrease the backlight by 5%
+  brightnessctl set 5%-
+  send_notification
+  ;;
+max)
+  brightnessctl set 100%
+  send_notification
+  ;;
+blank)
+  brightnessctl set 0%
+  send_notification
+  ;;
 esac

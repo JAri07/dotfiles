@@ -3,7 +3,7 @@
 state=$(bluetoothctl -- show | grep Powered | awk '{ print $2 }')
 
 if [[ $state == 'yes' ]]; then
-    bluetoothctl -- power off
+  bluetoothctl -- power off
 else
-    bluetoothctl -- power on
+  bluetoothctl -- power on
 fi

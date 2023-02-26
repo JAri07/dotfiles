@@ -14,13 +14,13 @@ function get_volume {
 }
 
 function is_mute {
-  amixer get Master | grep '%' | grep -oE '[^ ]+$' | grep off > /dev/null
+  amixer get Master | grep '%' | grep -oE '[^ ]+$' | grep off >/dev/null
 }
 
 function send_notification {
   iconSound="audio-volume-high"
   iconMuted="audio-volume-muted"
-  if is_mute ; then
+  if is_mute; then
     dunstify -i $iconMuted -r 2593 -u normal "Muted"
   else
     volume=$(get_volume)
@@ -34,23 +34,23 @@ function send_notification {
 }
 
 case $1 in
-  up)
-    # set the volume on (if it was muted)
-    amixer -D pipewire set Master on > /dev/null
-    # up the volume (+ 5%)
-    pactl set-sink-volume @DEFAULT_SINK@ +5% > /dev/null
-    send_notification
-    canberra-gtk-play -i audio-volume-change -d "changeVolume"
-    ;;
-  down)
-    amixer -D pipewire set Master on > /dev/null
-    pactl set-sink-volume @DEFAULT_SINK@ -5% > /dev/null
-    send_notification
-    canberra-gtk-play -i audio-volume-change -d "changeVolume"
-    ;;
-  mute)
-    # toggle mute
-    amixer -D pipewire set Master 1+ toggle > /dev/null
-    send_notification
-    ;;
+up)
+  # set the volume on (if it was muted)
+  amixer -D pipewire set Master on >/dev/null
+  # up the volume (+ 5%)
+  pactl set-sink-volume @DEFAULT_SINK@ +5% >/dev/null
+  send_notification
+  canberra-gtk-play -i audio-volume-change -d "changeVolume"
+  ;;
+down)
+  amixer -D pipewire set Master on >/dev/null
+  pactl set-sink-volume @DEFAULT_SINK@ -5% >/dev/null
+  send_notification
+  canberra-gtk-play -i audio-volume-change -d "changeVolume"
+  ;;
+mute)
+  # toggle mute
+  amixer -D pipewire set Master 1+ toggle >/dev/null
+  send_notification
+  ;;
 esac
