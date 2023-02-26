@@ -26,9 +26,9 @@ packagesPacman=(
   "fuse2"
   "grim"
   "gtk4"
-  "gzip"
   "guvcview"
   "gvfs"
+  "gzip"
   "htop"
   "imagemagick"
   "imv"
@@ -51,7 +51,6 @@ packagesPacman=(
   "pacman-contrib"
   "papirus-icon-theme"
   "pavucontrol"
-  "perl-image-exiftool" #PDF metadata editor
   "polkit-gnome"
   "python-click"
   "python-gobject"
@@ -96,14 +95,17 @@ packagesParu=(
 )
 
 packagesNPM=(
-  "tree-sitter"
   "jscpd"
+  "tree-sitter"
 )
 
 optionalPackagesPacman=(
+  "brave-bin"
   "libreoffice"
+  "perl-image-exiftool" #PDF metadata editor
   "tor"
   "torbrowser-launcher"
+  "pdftk" #PDF manipulating tool
 )
 
 optionalPackagesAUR=(
