@@ -7,6 +7,7 @@ source .install/packages/required.sh
 source .install/packages/packages.sh
 source .install/packages/aur.sh
 source .install/packages/install-packages.sh
+source .install/keyboard.sh
 source .install/neovim.sh
 
 # Move config files
@@ -37,6 +38,3 @@ sudo systemctl enable sddm
 
 # Change SDDM theme
 sudo sed -i 's/Current=*/Current=sugar-dark/1' /usr/lib/sddm/sddm.conf.d/default.conf
-
-# Install tresitter & code copy/paste detector (https://github.com/kucherenko/jscpd)
-npm install -g tree-sitter jscpd

@@ -53,3 +53,8 @@ _installPackagesAUR() {
 
   "${aur}" --noconfirm -S "${toInstall[@]}"
 }
+
+_installPackagesNPM() {
+  pkgs=$1
+  npm install ${pkgs[@]}
+}

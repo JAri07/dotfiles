@@ -1,6 +1,7 @@
 #!/bin/bash
 _installPackagesPacman "${packagesPacman[@]}"
 _installPackagesAUR "${packagesAUR[@]}"
+_installPackagesNPM "${packagesNPM[@]}"
 
 echo "SPACE = select/unselect a package to install. RETURN = confirm. No selection = CANCEL"
 selectedOptionalPacman=$(gum choose --no-limit --cursor-prefix "( ) " --selected-prefix "(x) " --unselected-prefix "( ) " "${optionalPackagesPacman[@]}")
