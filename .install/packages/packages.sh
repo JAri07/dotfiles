@@ -102,12 +102,11 @@ packagesNPM=(
 optionalPackagesPacman=(
   "brave-bin"
   "libreoffice"
+  "luarocks"
   "pdftk"               #PDF manipulating tool
   "perl-image-exiftool" #PDF metadata editor
-  "tor"
-  "torbrowser-launcher"
-  "luarocks"
   "tokei"
+  "torbrowser-launcher"
 )
 
 optionalPackagesAUR=(

@@ -8,6 +8,7 @@ source .install/packages/required.sh
 source .install/packages/aur.sh
 source .install/backup.sh
 source .install/packages/install-packages.sh
+source .install/packages/activate-services.sh
 source .install/keyboard.sh
 source .install/displaymanager.sh
 source .install/neovim.sh
