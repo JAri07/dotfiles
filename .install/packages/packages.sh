@@ -21,6 +21,7 @@ packagesPacman=(
   "curl"
   "dunst"
   "exa"
+  "fastfetch"
   "fd"
   "firefox"
   "fuse2"
@@ -47,6 +48,7 @@ packagesPacman=(
   "nodejs"
   "noto-fonts"
   "npm"
+  "onefetch"
   "otf-font-awesome"
   "pacman-contrib"
   "papirus-icon-theme"
@@ -83,12 +85,13 @@ packagesPacman=(
   "zip"
 )
 
-packagesParu=(
+packagesAUR=(
   "nvidia-open-dkms"
   "rofi-lbonn-wayland-git"
   "sddm-sugar-dark"
   "sioyek"
   "slurp"
+  "topgrade"
   "wezterm"
   "wf-recorder"
   "wl-clipboard"
@@ -96,21 +99,16 @@ packagesParu=(
 
 packagesNPM=(
   "jscpd"
-  "tree-sitter"
 )
 
 optionalPackagesPacman=(
   "brave-bin"
   "libreoffice"
-  "luarocks"
   "pdftk"               #PDF manipulating tool
   "perl-image-exiftool" #PDF metadata editor
-  "tokei"
   "torbrowser-launcher"
-)
-
-optionalPackagesAUR=(
-  "topgrade"
+  "luarocks"
+  "tokei"
 )
 
 latexPacman=(

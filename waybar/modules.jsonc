@@ -17,7 +17,7 @@
     }
   },
   "custom/updates": {
-    "exec": "(checkupdates ; paru -Qua) | wc -l",
+    "exec": "./scripts/updates.sh",
     "interval": 7200,
     "format": " {}"
   },
