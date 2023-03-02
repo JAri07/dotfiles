@@ -55,6 +55,12 @@ return {
 	audible_bell = "Disabled",
 	color_scheme = "Catppuccin Mocha",
 	window_background_opacity = 1.00,
+	colors = {
+		-- cursor_bg = '#0000ff',
+		cursor_bg = "gray",
+		-- Overrides the text color when the current cell is occupied by the cursor
+		cursor_fg = "white",
+	},
 
 	keys = {
 		{

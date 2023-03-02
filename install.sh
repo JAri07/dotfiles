@@ -23,14 +23,16 @@ else
   mkdir ~/.config
 fi
 
-cp -r ./alacritty/ ~/.config/
-cp -r ./dunst/ ~/.config/
-cp -r ./hypr/ ~/.config/
-cp -r ./rofi/ ~/.config/
-cp -r ./wallpapers/ ~/.config/
-cp -r ./waybar/ ~/.config/
-cp -r ./wezterm/ ~/.config/
+ln -s ./alacritty/ ~/.config/alacritty
+ln -s ./dunst/ ~/.config/dunst
+ln -s ./hypr/ ~/.config/hypr
+ln -s ./rofi/ ~/.config/rofi
+ln -s ./wallpapers/ ~/.config/wallpapers
+ln -s ./waybar/ ~/.config/waybar
+ln -s ./wezterm/ ~/.config/wezterm
 
-mkdir -p ~/.local/share
-cp -r ./.local/bin/ ~/.local/
-cp -r ./.local/fonts/ ~/.local/share/
+if [[ ! -d ~/.local/share ]]; then
+  mkdir -p ~/.local/share
+fi
+ln -l ./.local/bin/ ~/.local/bin
+ln -l ./.local/fonts/ ~/.local/share/fonts
