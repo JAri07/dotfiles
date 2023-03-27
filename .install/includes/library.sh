@@ -18,8 +18,8 @@ _isInstalled() {
 # ------------------------------------------------------
 _isFolderEmpty() {
   folder="$1"
-  if [ -d $folder ]; then
-    if [ -z "$(ls -A $folder)" ]; then
+  if [ -d "$folder" ]; then
+    if [[ -z $(ls -A "$folder") ]]; then
       echo 0
     else
       echo 1
@@ -34,7 +34,7 @@ _isFolderEmpty() {
 # ------------------------------------------------------
 _installPackagesPacman() {
   pkgs=$1
-  sudo pacman --needed --noconfirm -S ${pkgs[@]}
+  sudo pacman --needed --noconfirm -S "${pkgs[@]}"
 }
 
 _installPackagesAUR() {
@@ -47,43 +47,43 @@ _installPackagesAUR() {
     toInstall+=("${pkg}")
   done
 
-  if [[ "${toInstall[@]}" == "" ]]; then
+  if [[ ${#toInstall[@]} -eq 0 ]]; then
     return
   fi
 
+  aur=${aur:-"paru"}
   "${aur}" --noconfirm -S "${toInstall[@]}"
 }
 
 _installPackagesNPM() {
   pkgs=$1
-  npm install ${pkgs[@]}
+  npm install "${pkgs[@]}"
 }
 
 # ------------------------------------------------------
 # Create symbolic links
 # ------------------------------------------------------
 _installSymLink() {
-  name="$1"
   symlink="$2"
   linksource="$3"
   linktarget="$4"
 
   if [ -L "${symlink}" ]; then
-    rm ${symlink}
-    ln -s ${linksource} ${linktarget}
+    rm "${symlink}"
+    ln -s "${linksource}" "${linktarget}"
     echo ":: Symlink ${linksource} -> ${linktarget} created."
   else
-    if [ -d ${symlink} ]; then
-      rm -rf ${symlink}/
-      ln -s ${linksource} ${linktarget}
+    if [ -d "${symlink}" ]; then
+      rm -rf "${symlink:?}"
+      ln -s "${linksource}" "${linktarget}"
       echo ":: Symlink for directory ${linksource} -> ${linktarget} created."
     else
-      if [ -f ${symlink} ]; then
-        rm ${symlink}
-        ln -s ${linksource} ${linktarget}
+      if [ -f "${symlink}" ]; then
+        rm "${symlink}"
+        ln -s "${linksource}" "${linktarget}"
         echo ":: Symlink to file ${linksource} -> ${linktarget} created."
       else
-        ln -s ${linksource} ${linktarget}
+        ln -s "${linksource}" "${linktarget}"
         echo ":: New symlink ${linksource} -> ${linktarget} created."
       fi
     fi

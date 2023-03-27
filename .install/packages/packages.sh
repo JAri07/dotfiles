@@ -1,5 +1,5 @@
 #!/bin/bash
-packagesRequired=(
+export packagesRequired=(
   "base-devel"
   "figlet"
   "git"
@@ -8,7 +8,7 @@ packagesRequired=(
   "rsync"
 )
 
-packagesPacman=(
+export packagesPacman=(
   "alacritty"
   "blueman"
   "bluez"
@@ -85,7 +85,7 @@ packagesPacman=(
   "zip"
 )
 
-packagesAUR=(
+export packagesAUR=(
   "nvidia-open-dkms"
   "rofi-lbonn-wayland-git"
   "sddm-sugar-dark"
@@ -97,11 +97,11 @@ packagesAUR=(
   "wl-clipboard"
 )
 
-packagesNPM=(
+export packagesNPM=(
   "jscpd"
 )
 
-optionalPackagesPacman=(
+export optionalPackagesPacman=(
   "brave-bin"
   "libreoffice"
   "pdftk"               #PDF manipulating tool
@@ -111,7 +111,7 @@ optionalPackagesPacman=(
   "tokei"
 )
 
-latexPacman=(
+export latexPacman=(
   "texlive-basic"
   "texlive-bibtexextra"
   "texlive-bin"
