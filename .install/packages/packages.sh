@@ -86,6 +86,7 @@ export packagesPacman=(
 )
 
 export packagesAUR=(
+  "getnf"
   "nvidia-open-dkms"
   "rofi-lbonn-wayland-git"
   "sddm-sugar-dark"
@@ -130,4 +131,9 @@ export latexPacman=(
   "texlive-pstricks"
   "texlive-publishers"
   "texlive-xetex"
+)
+
+export nerdFonts=(
+  "CascadiaMono"
+  "Mononoki"
 )
