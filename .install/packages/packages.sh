@@ -82,7 +82,9 @@ export packagesPacman=(
   "xarchiver"
   "xdg-desktop-portal"
   "xdg-user-dirs"
+  "yarn"
   "zip"
+  "zsh"
 )
 
 export packagesAUR=(
@@ -105,11 +107,11 @@ export packagesNPM=(
 export optionalPackagesPacman=(
   "brave-bin"
   "libreoffice"
+  "luarocks"
   "pdftk"               #PDF manipulating tool
   "perl-image-exiftool" #PDF metadata editor
-  "torbrowser-launcher"
-  "luarocks"
   "tokei"
+  "torbrowser-launcher"
 )
 
 export latexPacman=(
