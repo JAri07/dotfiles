@@ -15,5 +15,6 @@ source .install/keyboard.sh
 source .install/displaymanager.sh
 source .install/neovim.sh
 source .install/fonts.sh
+source .install/nvidia.sh
 source .install/dotfiles.sh
 source .install/reboot.sh

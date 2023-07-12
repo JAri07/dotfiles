@@ -134,3 +134,9 @@ export nerdFonts=(
   "CascadiaMono"
   "Mononoki"
 )
+
+export NVidia=(
+  "egl-wayland"
+  "nvidia-open-dkms"
+  "nvidia-utils"
+)
