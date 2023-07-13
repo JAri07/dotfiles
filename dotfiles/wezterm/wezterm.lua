@@ -83,26 +83,26 @@ return {
 			mods = "CTRL",
 			action = wezterm.action.TogglePaneZoomState,
 		},
-		-- {
-		--   key = 'h',
-		--   mods = 'CTRL',
-		--   action = wezterm.action.ActivatePaneDirection 'Left',
-		-- },
-		-- {
-		--   key = 'l',
-		--   mods = 'CTRL',
-		--   action = wezterm.action.ActivatePaneDirection 'Right',
-		-- },
-		-- {
-		--   key = 'k',
-		--   mods = 'CTRL',
-		--   action = wezterm.action.ActivatePaneDirection 'Up',
-		-- },
-		-- {
-		--   key = 'j',
-		--   mods = 'CTRL',
-		--   action = wezterm.action.ActivatePaneDirection 'Down',
-		-- },
+		{
+			key = "h",
+			mods = "ALT",
+			action = wezterm.action.ActivatePaneDirection("Left"),
+		},
+		{
+			key = "l",
+			mods = "ALT",
+			action = wezterm.action.ActivatePaneDirection("Right"),
+		},
+		{
+			key = "k",
+			mods = "ALT",
+			action = wezterm.action.ActivatePaneDirection("Up"),
+		},
+		{
+			key = "j",
+			mods = "ALT",
+			action = wezterm.action.ActivatePaneDirection("Down"),
+		},
 		{
 			-- browser-like bindings for tabbing
 			key = "t",

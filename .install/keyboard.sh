@@ -32,4 +32,4 @@ _confirmKeyboard
 
 SEARCH="KEYBOARD_LAYOUT"
 REPLACE="$keyboard_layout"
-sed -i "s/$SEARCH/$REPLACE/g" ./hypr/conf/keyboard.conf
+sed -i "s/$SEARCH/$REPLACE/g" ./dotfiles/hypr/conf/keyboard.conf
